@@ -1,0 +1,30 @@
+﻿@page
+@model ASP_NET_HW_Module_03_part_01.Movies.IndexModel
+@{
+}
+
+<table class="table text-white">
+	<thead>
+		<tr>
+			<th>Название фильма</th>
+			<th>Режиссёр</th>
+			<th>Жанр</th>
+			<th>Описание</th>
+			<th>Сеансы</th>
+			<th></th><th></th>
+		</tr>
+	</thead>
+	@foreach(var item in Model.movies)
+	{
+		<tr>
+			<td>@item.Title</td>
+			<td>@item.Producer</td>
+			<td>@item.Genre</td>
+			<td>@item.Description</td>
+			@foreach(var session in item.Sessions)
+			{
+				<td>@session</td>
+			}
+		</tr>
+	}
+</table>
