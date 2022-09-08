@@ -1,0 +1,49 @@
+﻿@page
+@model ASP_NET_HW_Module_03_part_01.Pages.Movies.DetailsModel
+@{
+	ViewData["Title"] = Model.movie.Title;
+}
+
+<div>
+    <h4>@Model.movie.Title</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(m => m.movie.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Model.movie.Title
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(m => m.movie.Producer)
+        </dt>
+        <dd class="col-sm-10">
+            @Model.movie.Producer
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(m => m.movie.Genre)
+        </dt>
+        <dd class="col-sm-10">
+            @Model.movie.Genre
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(m => m.movie.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Model.movie.Description
+        </dd>
+        <hr />
+        <dt class="col-sm-2">
+            Сеансы
+        </dt>
+        @foreach(var session in Model.movie.Sessions)
+        {
+            <dd class="col-sm-2">
+                @session.ToShortTimeString();
+            </dd>
+        }
+    </dl>
+</div>
+<div>
+    <a asp-page="./Index">Возврат к списку</a>
+</div>
